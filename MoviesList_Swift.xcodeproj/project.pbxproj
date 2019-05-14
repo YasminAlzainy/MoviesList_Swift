@@ -22,6 +22,7 @@
 		CC03AB9C2289B491005B3E3B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC03AB9B2289B491005B3E3B /* CoreData.framework */; };
 		CC03AB9F2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC03AB9D2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld */; };
 		CC03ABA12289B58F005B3E3B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03ABA02289B58F005B3E3B /* FavoritesViewController.swift */; };
+		CCCA53F2228AFB7700F7ABD1 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F1228AFB7700F7ABD1 /* RecentCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		CC03AB9B2289B491005B3E3B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CC03AB9E2289B53D005B3E3B /* MoviesCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoviesCoreData.xcdatamodel; sourceTree = "<group>"; };
 		CC03ABA02289B58F005B3E3B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		CCCA53F1228AFB7700F7ABD1 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				CC03AB982289B421005B3E3B /* RecentViewController.swift */,
+				CCCA53F1228AFB7700F7ABD1 /* RecentCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				CC03AB9F2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld in Sources */,
 				BABDCFEF228AC2A40002724E /* Movie.swift in Sources */,
 				CC03AB6C2289A814005B3E3B /* MovieDetailsViewController.swift in Sources */,
+				CCCA53F2228AFB7700F7ABD1 /* RecentCollectionViewCell.swift in Sources */,
 				CC03ABA12289B58F005B3E3B /* FavoritesViewController.swift in Sources */,
 				CC03AB6A2289A814005B3E3B /* AppDelegate.swift in Sources */,
 			);

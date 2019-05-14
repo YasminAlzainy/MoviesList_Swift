@@ -7,21 +7,38 @@
 //
 
 import UIKit
+import Alamofire
 
 private let reuseIdentifier = "Cell"
+private let genericUrl = "https://api.themoviedb.org/3/discover/movie/"
+private let singleMovieUrl = "https://api.themoviedb.org/3/movie/"
+private let reviewsUrl = "reviews"
+private let vediosUrl = "videos"
+private let apiKey = "?api_key=60e665aad4a6ffc1ac2f69d0cd3b9429"
+private let moviesUrl = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=60e665aad4a6ffc1ac2f69d0cd3b9429&fbclid=IwAR1BTaNrLM4rukhxDr146FGkybtswQdGpu1nuRt35dYvMLnVZgwUSljD3wE"
 
 class RecentViewController: UICollectionViewController {
+    var moviesJsonDict : Dictionary<String,Any>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
+        Alamofire.request(moviesUrl)
+            .responseData { (resData) in
+                let jsonStr = String(data: resData.result.value!, encoding: String.Encoding.utf8)!;
+                let jsonData = jsonStr.data(using: String.Encoding.utf8)
+                
+                do
+                {
+                self.moviesJsonDict = try JSONSerialization.jsonObject(with: jsonData!, options: .allowFragments) as? Dictionary<String,Any>
+                print(self.moviesJsonDict!)
+                }
+                catch {print("Error in AF ")}
+        }
     }
 
     /*

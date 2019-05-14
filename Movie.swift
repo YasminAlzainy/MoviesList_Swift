@@ -14,4 +14,5 @@ class Movie: NSObject {
     var overview : String?
     var vote_average : Double?
     var release_date : String?
+    var id : Int?
 }
