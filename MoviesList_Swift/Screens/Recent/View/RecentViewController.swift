@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 private let reuseIdentifier = "Cell"
+
 private let genericUrl = "https://api.themoviedb.org/3/discover/movie/"
 private let singleMovieUrl = "https://api.themoviedb.org/3/movie/"
 private let reviewsUrl = "reviews"
@@ -25,22 +26,10 @@ class RecentViewController: UICollectionViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        Alamofire.request(moviesUrl)
-            .responseData { (resData) in
-                let jsonStr = String(data: resData.result.value!, encoding: String.Encoding.utf8)!;
-                let jsonData = jsonStr.data(using: String.Encoding.utf8)
-                
-                do
-                {
-                self.moviesJsonDict = try JSONSerialization.jsonObject(with: jsonData!, options: .allowFragments) as? Dictionary<String,Any>
-                print(self.moviesJsonDict!)
-                }
-                catch {print("Error in AF ")}
-        }
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)       
     }
-
+   
+    
     /*
     // MARK: - Navigation
 
@@ -104,3 +93,4 @@ class RecentViewController: UICollectionViewController {
     */
 
 }
+
