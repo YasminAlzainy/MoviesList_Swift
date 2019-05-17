@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Vedio : NSObject {
+class Video : NSObject {
     
     var id : String?
     var iso_639_1 : String?

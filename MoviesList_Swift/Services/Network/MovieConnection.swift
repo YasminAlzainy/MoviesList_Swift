@@ -40,6 +40,7 @@ class MovieConnection: NSObject {
                 do{
                     moviesJsonDict = try JSONSerialization.jsonObject(with: jsonData!, options: .allowFragments) as? Dictionary<String,Any>
                     //print(self.moviesJsonDict!)
+        
                 }
                 catch {print("Error in AF ")}
                 

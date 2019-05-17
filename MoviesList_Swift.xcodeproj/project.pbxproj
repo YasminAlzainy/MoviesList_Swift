@@ -27,11 +27,11 @@
 		CC03AB9C2289B491005B3E3B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC03AB9B2289B491005B3E3B /* CoreData.framework */; };
 		CC03AB9F2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC03AB9D2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld */; };
 		CC03ABA12289B58F005B3E3B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03ABA02289B58F005B3E3B /* FavoritesViewController.swift */; };
+		CC6C821D228F572600D0D04C /* VedioDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6C821C228F572600D0D04C /* VedioDao.swift */; };
 		CCCA53F2228AFB7700F7ABD1 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F1228AFB7700F7ABD1 /* RecentCollectionViewCell.swift */; };
 		CCCA53F4228B11B900F7ABD1 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F3228B11B900F7ABD1 /* Review.swift */; };
-		CCCA53F6228B11C800F7ABD1 /* Vedio.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F5228B11C800F7ABD1 /* Vedio.swift */; };
-		CCCA53F8228B160E00F7ABD1 /* ReviewsDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F7228B160E00F7ABD1 /* ReviewsDao.swift */; };
-		CCCA53FA228B162300F7ABD1 /* VedioDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F9228B162300F7ABD1 /* VedioDao.swift */; };
+		CCCA53F6228B11C800F7ABD1 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F5228B11C800F7ABD1 /* Video.swift */; };
+		CCCA53F8228B160E00F7ABD1 /* ReviewDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F7228B160E00F7ABD1 /* ReviewDao.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,11 +84,11 @@
 		CC03AB9B2289B491005B3E3B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CC03AB9E2289B53D005B3E3B /* MoviesCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoviesCoreData.xcdatamodel; sourceTree = "<group>"; };
 		CC03ABA02289B58F005B3E3B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		CC6C821C228F572600D0D04C /* VedioDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VedioDao.swift; sourceTree = "<group>"; };
 		CCCA53F1228AFB7700F7ABD1 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
 		CCCA53F3228B11B900F7ABD1 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Review.swift; path = MoviesList_Swift/Screens/Recent/View/Review.swift; sourceTree = SOURCE_ROOT; };
-		CCCA53F5228B11C800F7ABD1 /* Vedio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vedio.swift; path = MoviesList_Swift/Screens/Recent/View/Vedio.swift; sourceTree = SOURCE_ROOT; };
-		CCCA53F7228B160E00F7ABD1 /* ReviewsDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewsDao.swift; path = MoviesList_Swift/Services/Network/ReviewsDao.swift; sourceTree = SOURCE_ROOT; };
-		CCCA53F9228B162300F7ABD1 /* VedioDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VedioDao.swift; path = MoviesList_Swift/Services/Network/VedioDao.swift; sourceTree = SOURCE_ROOT; };
+		CCCA53F5228B11C800F7ABD1 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Video.swift; path = MoviesList_Swift/Screens/Recent/View/Video.swift; sourceTree = SOURCE_ROOT; };
+		CCCA53F7228B160E00F7ABD1 /* ReviewDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewDao.swift; path = MoviesList_Swift/Services/Network/ReviewDao.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +194,7 @@
 			children = (
 				BABDCFEE228AC2A40002724E /* Movie.swift */,
 				CCCA53F3228B11B900F7ABD1 /* Review.swift */,
-				CCCA53F5228B11C800F7ABD1 /* Vedio.swift */,
+				CCCA53F5228B11C800F7ABD1 /* Video.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,8 +232,8 @@
 		CC03ABA42289B803005B3E3B /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CCCA53F9228B162300F7ABD1 /* VedioDao.swift */,
-				CCCA53F7228B160E00F7ABD1 /* ReviewsDao.swift */,
+				CC6C821C228F572600D0D04C /* VedioDao.swift */,
+				CCCA53F7228B160E00F7ABD1 /* ReviewDao.swift */,
 				9C1687A0228F10860095281F /* MovieConnection.swift */,
 			);
 			path = Network;
@@ -564,17 +564,17 @@
 				9C16879F228F10680095281F /* RecentsPresenter.swift in Sources */,
 				CCCA53F4228B11B900F7ABD1 /* Review.swift in Sources */,
 				9C16879D228F10390095281F /* RecentsProtocol.swift in Sources */,
-				CCCA53F6228B11C800F7ABD1 /* Vedio.swift in Sources */,
+				CC6C821D228F572600D0D04C /* VedioDao.swift in Sources */,
+				CCCA53F6228B11C800F7ABD1 /* Video.swift in Sources */,
 				CC03AB9F2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld in Sources */,
 				BABDCFEF228AC2A40002724E /* Movie.swift in Sources */,
 				CC03AB6C2289A814005B3E3B /* MovieDetailsViewController.swift in Sources */,
 				9C16879B228F10060095281F /* RecentsViewController_ExtensionDelegate.swift in Sources */,
 				9C1687A1228F10860095281F /* MovieConnection.swift in Sources */,
-				CCCA53F8228B160E00F7ABD1 /* ReviewsDao.swift in Sources */,
+				CCCA53F8228B160E00F7ABD1 /* ReviewDao.swift in Sources */,
 				CCCA53F2228AFB7700F7ABD1 /* RecentCollectionViewCell.swift in Sources */,
 				CC03ABA12289B58F005B3E3B /* FavoritesViewController.swift in Sources */,
 				CC03AB6A2289A814005B3E3B /* AppDelegate.swift in Sources */,
-				CCCA53FA228B162300F7ABD1 /* VedioDao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

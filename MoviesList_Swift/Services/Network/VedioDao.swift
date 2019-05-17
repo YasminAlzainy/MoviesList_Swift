@@ -9,55 +9,53 @@
 import Foundation
 import Alamofire
 
-class VedioDao {
+class VideoDao {
     private let singleMovieUrl = "https://api.themoviedb.org/3/movie/"
-    private let vediosUrl = "/videos"
+    private let videosUrl = "/videos"
     private let apiKey = "?api_key=60e665aad4a6ffc1ac2f69d0cd3b9429"
-   // var moviesJsonDict : Dictionary<String,Any>?
 
     func concatVedioURL(movieId:String) -> String {
-        var concatedVedioUrl = singleMovieUrl + movieId + vediosUrl + apiKey
-        //print(concatedVedioUrl)
+        let concatedVedioUrl = singleMovieUrl + movieId + videosUrl + apiKey
         return concatedVedioUrl
     }
     
-    func vediosList(movieId:String){
-        var moviesJsonDict : Dictionary<String,Any>?
+    func videosList(movieId:String){
+        var movieJsonDict : Dictionary<String,Any>?
         Alamofire.request(concatVedioURL(movieId: movieId))
             .responseData { (resData) in
                 let jsonStr = String(data: resData.result.value!, encoding: String.Encoding.utf8)!;
                 let jsonData = jsonStr.data(using: String.Encoding.utf8)
                 do
                 {
-                    moviesJsonDict = try JSONSerialization.jsonObject(with: jsonData!, options: .allowFragments) as? Dictionary<String,Any>
-                    var vedioResults = moviesJsonDict!["results"]! as! Array<Dictionary<String,Any>>
+                    movieJsonDict = try JSONSerialization.jsonObject(with: jsonData!, options: .allowFragments) as? Dictionary<String,Any>
+                    let videoResults = movieJsonDict!["results"]! as! Array<Dictionary<String,Any>>
                    
-                    self.parseVediosJsonArray(moviesJsonDict: vedioResults)
+                    var videosArray = self.parseVideosJsonArray(videoResults: videoResults)
                 }
                 catch {print("Error in AF ")}
         }
     }
     
-    func parseVediosJsonArray( moviesJsonDict: Array<Dictionary<String,Any>> ) -> Array<Vedio> {
-        var vedioArray = Array<Vedio>()
+    func parseVideosJsonArray( videoResults: Array<Dictionary<String,Any>> ) {
+        var videosArray = Array<Video>()
         
-        for i in 0..<moviesJsonDict.count{
+        for i in 0..<videoResults.count{
             
-        var vedioJson = moviesJsonDict[i] as! Dictionary<String ,Any>
-        var id = vedioJson["id"] as! String
-        var iso_639_1 = vedioJson["iso_639_1"] as! String
-        var iso_3166_1 = vedioJson["iso_3166_1"] as! String
-        var key = vedioJson["key"] as! String
-        var name =  vedioJson["name"] as! String
-        var site = vedioJson["site"] as! String
-        var size = vedioJson["size"] as! Int
-        var type =  vedioJson["type"] as! String
+            var videoJson = videoResults[i]
+            let id = videoJson["id"] as! String
+            let iso_639_1 = videoJson["iso_639_1"] as! String
+            let iso_3166_1 = videoJson["iso_3166_1"] as! String
+            let key = videoJson["key"] as! String
+            let name =  videoJson["name"] as! String
+            let site = videoJson["site"] as! String
+            let size = videoJson["size"] as! Int
+            let type =  videoJson["type"] as! String
         
-        var vedio = Vedio.init(id: id , iso_639_1:iso_639_1 , iso_3166_1:iso_3166_1 , key: key , name:name, site: site , size: size , type: type)
-        vedioArray.append(vedio)
+            let vedio = Video.init(id: id , iso_639_1:iso_639_1 , iso_3166_1:iso_3166_1 , key: key , name:name, site: site , size: size , type: type)
+            videosArray.append(vedio)
         }
-        
-        return vedioArray
+        //send vedioArray to view here by presenter
+
     }
 
 }
