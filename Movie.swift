@@ -15,4 +15,14 @@ class Movie: NSObject {
     var vote_average : Double?
     var release_date : String?
     var id : Int? //Movie id from json
+    
+    init(original_title: String,poster_path: String,overview: String, vote_average:  Double, release_date: String, id: Int){
+        self.original_title = original_title
+        self.poster_path = poster_path
+        self.overview = overview
+        self.vote_average = vote_average
+        self.release_date = release_date
+        self.id = id
+    }
+    
 }
