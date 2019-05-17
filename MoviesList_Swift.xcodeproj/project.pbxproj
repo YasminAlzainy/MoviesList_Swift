@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		77A1E6AB807A14992DA22D05 /* Pods_MoviesList_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152670DE2F6C831432515626 /* Pods_MoviesList_Swift.framework */; };
 		8EC8BA72743BF65CDE8A419E /* Pods_MoviesList_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF16485BB55C22D8ED31C81C /* Pods_MoviesList_SwiftUITests.framework */; };
-		9C168799228F0FA50095281F /* movie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C168798228F0FA50095281F /* movie.jpg */; };
+		9C1377FC228F25AE00DC6BF0 /* movie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C1377FB228F25AD00DC6BF0 /* movie.jpg */; };
 		9C16879B228F10060095281F /* RecentsViewController_ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16879A228F10060095281F /* RecentsViewController_ExtensionDelegate.swift */; };
 		9C16879D228F10390095281F /* RecentsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16879C228F10390095281F /* RecentsProtocol.swift */; };
 		9C16879F228F10680095281F /* RecentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16879E228F10680095281F /* RecentsPresenter.swift */; };
@@ -57,7 +57,7 @@
 		3647DA3024CF576F0B4C023A /* Pods-MoviesList_SwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesList_SwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoviesList_SwiftTests/Pods-MoviesList_SwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		6B581A087BD8E831F808D731 /* Pods-MoviesList_SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesList_SwiftUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoviesList_SwiftUITests/Pods-MoviesList_SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		99C4C3BE6BB4E6D4F702E154 /* Pods_MoviesList_SwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesList_SwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C168798228F0FA50095281F /* movie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = movie.jpg; path = ../../../Downloads/movie.jpg; sourceTree = "<group>"; };
+		9C1377FB228F25AD00DC6BF0 /* movie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = movie.jpg; sourceTree = "<group>"; };
 		9C16879A228F10060095281F /* RecentsViewController_ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsViewController_ExtensionDelegate.swift; sourceTree = "<group>"; };
 		9C16879C228F10390095281F /* RecentsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentsProtocol.swift; path = MoviesList_Swift/Screens/Recent/View/RecentsProtocol.swift; sourceTree = SOURCE_ROOT; };
 		9C16879E228F10680095281F /* RecentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentsPresenter.swift; path = MoviesList_Swift/Screens/Recent/View/RecentsPresenter.swift; sourceTree = SOURCE_ROOT; };
@@ -136,7 +136,7 @@
 		CC03AB5D2289A814005B3E3B = {
 			isa = PBXGroup;
 			children = (
-				9C168798228F0FA50095281F /* movie.jpg */,
+				9C1377FB228F25AD00DC6BF0 /* movie.jpg */,
 				CC03AB682289A814005B3E3B /* MoviesList_Swift */,
 				CC03AB7D2289A815005B3E3B /* MoviesList_SwiftTests */,
 				CC03AB882289A815005B3E3B /* MoviesList_SwiftUITests */,
@@ -455,7 +455,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C168799228F0FA50095281F /* movie.jpg in Resources */,
+				9C1377FC228F25AE00DC6BF0 /* movie.jpg in Resources */,
 				CC03AB742289A815005B3E3B /* LaunchScreen.storyboard in Resources */,
 				CC03AB712289A815005B3E3B /* Assets.xcassets in Resources */,
 				CC03AB6F2289A814005B3E3B /* Main.storyboard in Resources */,
