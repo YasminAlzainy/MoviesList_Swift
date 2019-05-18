@@ -10,5 +10,4 @@ import UIKit
 
 class RecentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieImageView: UIImageView!
-    
 }

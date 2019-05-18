@@ -15,13 +15,19 @@ class ReviewsDao {
     private let apiKey = "?api_key=60e665aad4a6ffc1ac2f69d0cd3b9429"
     var moviesJsonDict : Dictionary<String,Any>?
 
+    var recentsPresenter : RecentsPresenter?
+    
+    init(presenter: RecentsPresenter){
+        self.recentsPresenter = presenter
+    }
+    
     func concatReviewURL(movieId:String) -> String {
         var concatedReviewUrl = singleMovieUrl + movieId + reviewsUrl + apiKey
         print(concatedReviewUrl)
         return concatedReviewUrl
     }
     
-    func reviewsList(movieId:String) {
+    func reviewsList(movieId:String , Index: Int) {
         var movieJsonDict : Dictionary<String,Any>?
         Alamofire.request(concatReviewURL(movieId: movieId))
             .responseData { (resData) in
@@ -32,13 +38,13 @@ class ReviewsDao {
                     movieJsonDict = try JSONSerialization.jsonObject(with: jsonData!, options: .allowFragments) as? Dictionary<String,Any>
                     let reviewResults = movieJsonDict!["results"]! as! Array<Dictionary<String,Any>>
                     
-                    self.parseReviewssJsonArray(reviewJsonDict: reviewResults)
+                    self.parseReviewssJsonArray(reviewJsonDict: reviewResults , index: Index)
                 }
                 catch {print("Error in AF ")}
         }
     }
     
-    func parseReviewssJsonArray( reviewJsonDict: Array<Dictionary<String,Any>> ) {
+    func parseReviewssJsonArray( reviewJsonDict: Array<Dictionary<String,Any>> , index: Int) {
         var reviewsArray = Array<Review>()
         
         for i in 0..<reviewJsonDict.count{
@@ -52,6 +58,11 @@ class ReviewsDao {
             let review = Review(author: author, content: content, id: id, url: url);
             reviewsArray.append(review)
         }
-        //send reviewsArray to view here by presenter
+        
+        self.sendReviewsListToPresenter(reviewsList: reviewsArray, index: index)
 }
+    
+    func sendReviewsListToPresenter(reviewsList: [Review] , index: Int) {
+        recentsPresenter?.sendReviewsListToView(reviewsArray: reviewsList, index: index)
+    }
 }

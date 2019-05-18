@@ -13,13 +13,19 @@ class VideoDao {
     private let singleMovieUrl = "https://api.themoviedb.org/3/movie/"
     private let videosUrl = "/videos"
     private let apiKey = "?api_key=60e665aad4a6ffc1ac2f69d0cd3b9429"
+   
+    var recentsPresenter : RecentsPresenter?
+    
+    init(presenter: RecentsPresenter){
+        self.recentsPresenter = presenter
+    }
 
     func concatVedioURL(movieId:String) -> String {
         let concatedVedioUrl = singleMovieUrl + movieId + videosUrl + apiKey
         return concatedVedioUrl
     }
     
-    func videosList(movieId:String){
+    func videosList(movieId:String , index: Int){
         var movieJsonDict : Dictionary<String,Any>?
         Alamofire.request(concatVedioURL(movieId: movieId))
             .responseData { (resData) in
@@ -30,13 +36,13 @@ class VideoDao {
                     movieJsonDict = try JSONSerialization.jsonObject(with: jsonData!, options: .allowFragments) as? Dictionary<String,Any>
                     let videoResults = movieJsonDict!["results"]! as! Array<Dictionary<String,Any>>
                    
-                    var videosArray = self.parseVideosJsonArray(videoResults: videoResults)
+                   self.parseVideosJsonArray(videoResults: videoResults, index: index)
                 }
                 catch {print("Error in AF ")}
         }
     }
     
-    func parseVideosJsonArray( videoResults: Array<Dictionary<String,Any>> ) {
+    func parseVideosJsonArray( videoResults: Array<Dictionary<String,Any>> , index: Int) {
         var videosArray = Array<Video>()
         
         for i in 0..<videoResults.count{
@@ -54,8 +60,10 @@ class VideoDao {
             let vedio = Video.init(id: id , iso_639_1:iso_639_1 , iso_3166_1:iso_3166_1 , key: key , name:name, site: site , size: size , type: type)
             videosArray.append(vedio)
         }
-        //send vedioArray to view here by presenter
-
+        self.sendVedioListToPresenter(vedioArray: videosArray, index: index)
     }
 
+    func sendVedioListToPresenter(vedioArray: Array<Video> , index: Int) {
+        recentsPresenter?.sendVideosListToView(vediosArray: vedioArray, index: index)
+    }
 }

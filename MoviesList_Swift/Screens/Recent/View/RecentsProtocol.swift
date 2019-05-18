@@ -10,4 +10,6 @@ import Foundation
 
 protocol RecentsProtocol {
     func showMovies(movieObjectsArray: [Movie])
+    func showVideos(videoObjectsArray: [Video] , index: Int)
+    func showReviews(reviewsObjectsArray: [Review] , index: Int)
 }

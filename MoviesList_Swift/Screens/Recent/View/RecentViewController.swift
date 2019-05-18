@@ -15,6 +15,7 @@ private let basePosterPath = "https://image.tmdb.org/t/p/w185"
 
 class RecentViewController: UICollectionViewController {
     
+    var index : Int = 0
     var movieObjArr : [Movie] = []
     
     var recentsPresenter : RecentsPresenter = RecentsPresenter()
@@ -27,15 +28,16 @@ class RecentViewController: UICollectionViewController {
         
     }
     
-    /*
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
+        var idStr = String(movieObjArr[index].id!)
+        getVideosList(movieId: idStr , index: index)
+        getReviewsList(movieId: idStr, index: index)
      }
-     */
+
     
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -61,12 +63,13 @@ class RecentViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDelegate
     
-    /*
+    
      // Uncomment this method to specify if the specified item should be highlighted during tracking
      override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        index = indexPath.row
      return true
      }
-     */
+    
     
     /*
      // Uncomment this method to specify if the specified item should be selected

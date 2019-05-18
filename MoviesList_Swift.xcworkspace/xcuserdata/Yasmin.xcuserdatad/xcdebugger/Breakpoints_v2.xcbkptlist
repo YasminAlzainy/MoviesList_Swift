@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MoviesList_Swift/Services/Network/MovieConnection.swift"
-            timestampString = "579820295.158868"
+            filePath = "MoviesList_Swift/Services/Network/ReviewDao.swift"
+            timestampString = "579901337.376937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "getMovieDetailsWithAlamoFire()"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "parseReviewssJsonArray(reviewJsonDict:index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviesList_Swift/Services/Network/ReviewDao.swift"
+            timestampString = "579901337.377262"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "sendReviewsListToPresenter(reviewsList:index:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

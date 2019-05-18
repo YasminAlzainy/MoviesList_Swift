@@ -10,7 +10,6 @@ import Foundation
 
 //implements view prototcol
 extension RecentViewController : RecentsProtocol{
-    
     func showMovies(movieObjectsArray: [Movie]) {
         self.movieObjArr = movieObjectsArray
         self.collectionView?.reloadData()
@@ -20,5 +19,27 @@ extension RecentViewController : RecentsProtocol{
         recentsPresenter.getMovieListFromNS()
     }
     
+    func getVideosList(movieId:String , index: Int) {
+        recentsPresenter.getVideosListFromNS(movieId: movieId , index:index )
+    }
     
+    func getReviewsList(movieId:String , index: Int) {
+        recentsPresenter.getReviewsListFromNS(movieId: movieId , index:index )
+    }
+    
+
+    func showVideos(videoObjectsArray: [Video] , index: Int) {
+        movieObjArr[index].videosArray = videoObjectsArray
+        sendMovieToDetailsView(movie: movieObjArr[index])
+    }
+    
+    func showReviews(reviewsObjectsArray: [Review] , index: Int) {
+        movieObjArr[index].reviewsArray = reviewsObjectsArray
+        sendMovieToDetailsView(movie: movieObjArr[index])
+    }
+    
+    func sendMovieToDetailsView(movie: Movie){
+        // send the movie to details presenter
+    }
+
 }
