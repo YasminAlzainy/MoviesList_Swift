@@ -11,17 +11,21 @@ import UIKit
 private let reuseIdentifier = "FavCell"
 
 class FavoritesViewController: UICollectionViewController {
+    
+    var presenter : FavoritesPresenter?
+    
+    func initPresenter() {
+        presenter = FavoritesPresenter()
+        presenter?.setDelegate(favoritesProtocol: self as FavoritesProtocol)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        initPresenter()
 
-        // Do any additional setup after loading the view.
     }
 
     /*

@@ -51,4 +51,8 @@ class RecentsPresenter{
     {
         recentsDelegate?.showReviews(reviewsObjectsArray: reviewsArray, index: index)
     }
+    
+    func addToFavoritesArr(movie: Movie) {
+       // recentsDelegate?.addToFavoritesArr()
+    }
 }

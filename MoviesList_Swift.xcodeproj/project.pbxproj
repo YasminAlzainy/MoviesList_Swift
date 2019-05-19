@@ -28,6 +28,9 @@
 		CC03AB9F2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC03AB9D2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld */; };
 		CC03ABA12289B58F005B3E3B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03ABA02289B58F005B3E3B /* FavoritesViewController.swift */; };
 		CC6C821D228F572600D0D04C /* VedioDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6C821C228F572600D0D04C /* VedioDao.swift */; };
+		CC6C821F2290B4D800D0D04C /* FavoritesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6C821E2290B4D800D0D04C /* FavoritesDelegate.swift */; };
+		CC6C82212290B56F00D0D04C /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6C82202290B56F00D0D04C /* FavoritesProtocol.swift */; };
+		CC6C82232290B58C00D0D04C /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6C82222290B58C00D0D04C /* FavoritesPresenter.swift */; };
 		CCCA53F2228AFB7700F7ABD1 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F1228AFB7700F7ABD1 /* RecentCollectionViewCell.swift */; };
 		CCCA53F4228B11B900F7ABD1 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F3228B11B900F7ABD1 /* Review.swift */; };
 		CCCA53F6228B11C800F7ABD1 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F5228B11C800F7ABD1 /* Video.swift */; };
@@ -85,6 +88,9 @@
 		CC03AB9E2289B53D005B3E3B /* MoviesCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoviesCoreData.xcdatamodel; sourceTree = "<group>"; };
 		CC03ABA02289B58F005B3E3B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		CC6C821C228F572600D0D04C /* VedioDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VedioDao.swift; sourceTree = "<group>"; };
+		CC6C821E2290B4D800D0D04C /* FavoritesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDelegate.swift; sourceTree = "<group>"; };
+		CC6C82202290B56F00D0D04C /* FavoritesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesProtocol.swift; path = MoviesList_Swift/Screens/Favorites/View/FavoritesProtocol.swift; sourceTree = SOURCE_ROOT; };
+		CC6C82222290B58C00D0D04C /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesPresenter.swift; path = MoviesList_Swift/Screens/Favorites/View/FavoritesPresenter.swift; sourceTree = SOURCE_ROOT; };
 		CCCA53F1228AFB7700F7ABD1 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
 		CCCA53F3228B11B900F7ABD1 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Review.swift; path = MoviesList_Swift/Screens/Recent/View/Review.swift; sourceTree = SOURCE_ROOT; };
 		CCCA53F5228B11C800F7ABD1 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Video.swift; path = MoviesList_Swift/Screens/Recent/View/Video.swift; sourceTree = SOURCE_ROOT; };
@@ -303,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				CC03ABA02289B58F005B3E3B /* FavoritesViewController.swift */,
+				CC6C821E2290B4D800D0D04C /* FavoritesDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +317,7 @@
 		CC03ABAD2289B959005B3E3B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				CC6C82222290B58C00D0D04C /* FavoritesPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -317,6 +325,7 @@
 		CC03ABAE2289B961005B3E3B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				CC6C82202290B56F00D0D04C /* FavoritesProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -572,9 +581,12 @@
 				9C16879B228F10060095281F /* RecentsViewController_ExtensionDelegate.swift in Sources */,
 				9C1687A1228F10860095281F /* MovieConnection.swift in Sources */,
 				CCCA53F8228B160E00F7ABD1 /* ReviewDao.swift in Sources */,
+				CC6C82212290B56F00D0D04C /* FavoritesProtocol.swift in Sources */,
 				CCCA53F2228AFB7700F7ABD1 /* RecentCollectionViewCell.swift in Sources */,
+				CC6C82232290B58C00D0D04C /* FavoritesPresenter.swift in Sources */,
 				CC03ABA12289B58F005B3E3B /* FavoritesViewController.swift in Sources */,
 				CC03AB6A2289A814005B3E3B /* AppDelegate.swift in Sources */,
+				CC6C821F2290B4D800D0D04C /* FavoritesDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
