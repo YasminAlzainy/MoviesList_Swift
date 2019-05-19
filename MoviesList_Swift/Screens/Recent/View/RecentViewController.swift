@@ -23,9 +23,13 @@ class RecentViewController: UICollectionViewController {
         super.viewDidLoad()
         self.recentsPresenter.setDelegate(delegate: (self as RecentsProtocol))
         
-        getMoviesList()
+        getMoviesList(userChoice: false)
         //self.collectionView?.reloadData()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView?.reloadData()
     }
     
 
@@ -53,10 +57,18 @@ class RecentViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RecentCollectionViewCell
         
+        if movieObjArr[indexPath.row].poster_path == nil{
+            print("Poster is nil")
+            cell.movieImageView.image = UIImage(named: "movie.jpg")
+        }
+        else{
+            print("Poster is NOT nil")
+    
         // Configure the cell
         let posterUrlString : String = basePosterPath+movieObjArr[indexPath.row].poster_path!
-        
+        print(posterUrlString)
         cell.movieImageView.sd_setImage(with: NSURL(string: posterUrlString) as URL?, placeholderImage: UIImage(named:"movie.jpg"))
+        }
         
         return cell
     }
@@ -92,6 +104,21 @@ class RecentViewController: UICollectionViewController {
      
      }
      */
+    
+    
+    @IBAction func highestRankAction(_ sender: UIBarButtonItem) {
+        getMoviesList(userChoice: true)
+        //self.collectionView?.reloadData()
+        
+    }
+    
+    
+    @IBAction func mostPopularAction(_ sender: UIBarButtonItem) {
+        getMoviesList(userChoice: false)
+        //self.collectionView?.reloadData()
+    }
+    
+    
     
 }
 
