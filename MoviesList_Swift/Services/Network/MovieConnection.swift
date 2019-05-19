@@ -15,7 +15,7 @@ private let singleMovieUrl = "https://api.themoviedb.org/3/movie/"
 private let reviewsUrl = "reviews"
 private let vediosUrl = "videos"
 private let apiKey = "?api_key=60e665aad4a6ffc1ac2f69d0cd3b9429"
-private let moviesUrl = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=60e665aad4a6ffc1ac2f69d0cd3b9429&fbclid=IwAR1BTaNrLM4rukhxDr146FGkybtswQdGpu1nuRt35dYvMLnVZgwUSljD3wE"
+private var moviesUrl : String?
 private let basePosterPath = "https://image.tmdb.org/t/p/w185"
 
 class MovieConnection: NSObject {
@@ -26,13 +26,21 @@ class MovieConnection: NSObject {
         self.recentsPresenter = presenter
     }
     
-    func getMovieDetailsWithAlamoFire(){
+    func getMovieDetailsWithAlamoFire(choice: Bool){
         var moviesJsonDict : Dictionary<String,Any>?
         var resultsArr : Array<Dictionary<String,Any>>?
         var movieObjArr : [Movie] = []
         
+        if choice == true {
+            moviesUrl = "https://api.themoviedb.org/3/discover/movie?sort_by=highest-rated&api_key=60e665aad4a6ffc1ac2f69d0cd3b9429&fbclid=IwAR1BTaNrLM4rukhxDr146FGkybtswQdGpu1nuRt35dYvMLnVZgwUSljD3wE"
+            movieObjArr = []
+        }
+        else{
+            moviesUrl = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=60e665aad4a6ffc1ac2f69d0cd3b9429&fbclid=IwAR1BTaNrLM4rukhxDr146FGkybtswQdGpu1nuRt35dYvMLnVZgwUSljD3wE"
+            
+        }
         
-        Alamofire.request(moviesUrl)
+        Alamofire.request(moviesUrl!)
             .responseData { (resData) in
                 let jsonStr = String(data: resData.result.value!, encoding: String.Encoding.utf8)!;
                 let jsonData = jsonStr.data(using: String.Encoding.utf8)
@@ -65,7 +73,7 @@ class MovieConnection: NSObject {
                 self.sendMovieListToPresenter(movieList: movieObjArr)
                 
                 for i in 0..<movieObjArr.count{
-                    print(movieObjArr[i].poster_path!)
+                    print(movieObjArr[i].original_title!)
                 }
         }
     }

@@ -15,9 +15,15 @@ extension RecentViewController : RecentsProtocol{
         self.collectionView?.reloadData()
     }
     
-    func getMoviesList(){
-        recentsPresenter.getMovieListFromNS()
+//    func getMoviesList(){
+//        recentsPresenter.getMovieListFromNS()
+//    }
+    
+    func getMoviesList(userChoice: Bool){
+        recentsPresenter.getMovieListFromNS(userChoice: userChoice)
     }
+    
+    
     
     func getVideosList(movieId:String , index: Int) {
         recentsPresenter.getVideosListFromNS(movieId: movieId , index:index )

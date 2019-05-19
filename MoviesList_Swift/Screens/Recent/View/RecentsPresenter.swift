@@ -26,8 +26,12 @@ class RecentsPresenter{
         self.recentsDelegate = delegate
     }
     
-    func getMovieListFromNS(){
-        movieConnection?.getMovieDetailsWithAlamoFire()
+//    func getMovieListFromNS(){
+//        movieConnection?.getMovieDetailsWithAlamoFire(choice: Bool)
+//    }
+    
+    func getMovieListFromNS(userChoice: Bool){
+        movieConnection?.getMovieDetailsWithAlamoFire(choice: userChoice)
     }
     
     func sendMovieListToView(movieList: [Movie]){
