@@ -18,6 +18,7 @@ class RecentViewController: UICollectionViewController {
     var index : Int = 0
     var movieObjArr : [Movie] = []
     var favoritArr : [Movie] = []
+    var detailsPresenter : MoviesDetailsPresenter = MoviesDetailsPresenter()
     
     var recentsPresenter : RecentsPresenter = RecentsPresenter()
     override func viewDidLoad() {
@@ -29,6 +30,8 @@ class RecentViewController: UICollectionViewController {
         
     }
     
+
+    
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView?.reloadData()
     }
@@ -38,11 +41,19 @@ class RecentViewController: UICollectionViewController {
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var idStr = String(movieObjArr[index].id!)
-        getVideosList(movieId: idStr , index: index)
-        getReviewsList(movieId: idStr, index: index)
-     }
+        //METHOD HERE
+//        let idStr = String(movieObjArr[index].id!)
+//        getVideosList(movieId: idStr , index: index)
+//        getReviewsList(movieId: idStr, index: index)
+        
+        let detailsVC = segue.destination as! MovieDetailsViewController
+        //detailsPresenter.detailsDelegate?.setMovieDetails(movieObj: movieObjArr[index]) //try mvp 
+        //detailsVC.setMovieDetails(movieObj: movieObjArr[index])
+        //detailsPresenter.sendWholeMovieObjectToDetailsVC(movieObj: movieObjArr[index])
+        sendMovieToDetailsView(movie: movieObjArr[index])
 
+     }
+    
     
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -109,14 +120,12 @@ class RecentViewController: UICollectionViewController {
     
     @IBAction func highestRankAction(_ sender: UIBarButtonItem) {
         getMoviesList(userChoice: true)
-        //self.collectionView?.reloadData()
         
     }
     
     
     @IBAction func mostPopularAction(_ sender: UIBarButtonItem) {
         getMoviesList(userChoice: false)
-        //self.collectionView?.reloadData()
     }
     
     

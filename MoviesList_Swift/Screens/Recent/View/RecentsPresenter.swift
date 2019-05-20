@@ -58,5 +58,6 @@ class RecentsPresenter{
     
     func addToFavoritesArr(movie: Movie) {
        // recentsDelegate?.addToFavoritesArr()
+        
     }
 }

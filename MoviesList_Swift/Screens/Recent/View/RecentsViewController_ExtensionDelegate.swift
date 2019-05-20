@@ -24,7 +24,6 @@ extension RecentViewController : RecentsProtocol{
     }
     
     
-    
     func getVideosList(movieId:String , index: Int) {
         recentsPresenter.getVideosListFromNS(movieId: movieId , index:index )
     }
@@ -46,6 +45,7 @@ extension RecentViewController : RecentsProtocol{
     
     func sendMovieToDetailsView(movie: Movie){
         // send the movie to details presenter
+        detailsPresenter.sendWholeMovieObjectToDetailsVC(movieObj: movie)
     }
 
 }
