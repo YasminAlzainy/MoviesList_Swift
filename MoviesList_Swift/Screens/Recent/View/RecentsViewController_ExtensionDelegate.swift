@@ -45,7 +45,8 @@ extension RecentViewController : RecentsProtocol{
     }
     
     func sendMovieToDetailsView(movie: Movie){
-        // send the movie to details presenter
+//        let video = movieObjArr[index].videosArray![0] as Video
+//        print(video.name)
     }
 
 }

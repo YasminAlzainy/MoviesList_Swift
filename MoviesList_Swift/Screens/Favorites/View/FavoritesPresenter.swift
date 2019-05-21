@@ -10,8 +10,19 @@ import Foundation
 class FavoritesPresenter {
     
     var favoritesProtocol : FavoritesProtocol?
-    
+    var favoriteCoreDao : FavoriteCoreDao?
+    init() {
+        self.favoriteCoreDao = FavoriteCoreDao(presenter: self)
+    }
     func setDelegate(favoritesProtocol: FavoritesProtocol) {
         self.favoritesProtocol = favoritesProtocol
+    }
+    
+    func getFavoriteMovies(){
+        favoriteCoreDao!.getFavoriteMovies()
+    }
+    
+    func ShowFavoriteMovies(favoriteMovies : [Movie])  {
+        favoritesProtocol!.ShowFavoriteMovies(favoriteMovies: favoriteMovies)
     }
 }

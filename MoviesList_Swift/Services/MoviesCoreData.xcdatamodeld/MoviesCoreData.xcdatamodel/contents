@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="FavoriteMovie" representedClassName="FavoriteMovie" syncable="YES" codeGenerationType="class">
+        <attribute name="id_movie" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="original_title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="poster_path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="release_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vote_average" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="hasReview" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FavoriteReview" inverseName="aboutMovie" inverseEntity="FavoriteReview" syncable="YES"/>
+        <relationship name="hasVideo" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FavoriteVideo" inverseName="aboutMovie" inverseEntity="FavoriteVideo" syncable="YES"/>
+    </entity>
+    <entity name="FavoriteReview" representedClassName="FavoriteReview" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_Review" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="aboutMovie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriteMovie" inverseName="hasReview" inverseEntity="FavoriteMovie" syncable="YES"/>
+    </entity>
+    <entity name="FavoriteVideo" representedClassName="FavoriteVideo" syncable="YES" codeGenerationType="class">
+        <attribute name="id_video" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iso_639_1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iso_3166_1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="site" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="aboutMovie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriteMovie" inverseName="hasVideo" inverseEntity="FavoriteMovie" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="FavoriteMovie" positionX="-449.24609375" positionY="-26.71875" width="128" height="165"/>
+        <element name="FavoriteReview" positionX="-60.87109375" positionY="-129.62890625" width="128" height="120"/>
+        <element name="FavoriteVideo" positionX="-54" positionY="45" width="128" height="180"/>
+    </elements>
 </model>

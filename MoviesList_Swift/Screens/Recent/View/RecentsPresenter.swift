@@ -19,7 +19,6 @@ class RecentsPresenter{
         self.movieConnection = MovieConnection(presenter: self)
         self.videoDao = VideoDao(presenter: self)
         self.reviewDao = ReviewsDao(presenter: self)
-
     }
     
     func setDelegate(delegate: RecentsProtocol){

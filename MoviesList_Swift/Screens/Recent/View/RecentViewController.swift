@@ -17,7 +17,6 @@ class RecentViewController: UICollectionViewController {
     
     var index : Int = 0
     var movieObjArr : [Movie] = []
-    var favoritArr : [Movie] = []
     
     var recentsPresenter : RecentsPresenter = RecentsPresenter()
     override func viewDidLoad() {
@@ -26,6 +25,7 @@ class RecentViewController: UICollectionViewController {
         
         getMoviesList(userChoice: false)
         //self.collectionView?.reloadData()
+        
         
     }
     

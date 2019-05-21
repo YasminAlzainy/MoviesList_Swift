@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "FavCell"
 
 class FavoritesViewController: UICollectionViewController {
     
-    var presenter : FavoritesPresenter?
+    var favoritePresenter : FavoritesPresenter?
+    var favoriteArray : [NSManagedObject]?
+    var appDelegate: AppDelegate?
+    var context : NSManagedObjectContext?
+
     
     func initPresenter() {
-        presenter = FavoritesPresenter()
-        presenter?.setDelegate(favoritesProtocol: self as FavoritesProtocol)
+        favoritePresenter = FavoritesPresenter()
+        favoritePresenter?.setDelegate(favoritesProtocol: self as FavoritesProtocol)
     }
 
     override func viewDidLoad() {
@@ -25,9 +30,51 @@ class FavoritesViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         initPresenter()
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate!.persistentContainer.viewContext as! NSManagedObjectContext
+        
+        getFavoriteMovies()
+        
+       
 
     }
 
+    func addToFavorite(){
+        let movie = FavoriteMovie(context: context!)
+        //NSEntityDescription.insertNewObject(forEntityName: "FavoriteMovie", into: context) as! FavoriteMovie
+        movie.id_movie = 299534
+        movie.original_title = "Avengers: Endgame"
+        movie.poster_path = "/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+        movie.overview = "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store."
+        movie.vote_average = 8.5
+        movie.release_date = "release_date"
+        
+        let review = FavoriteReview(context: context!)
+        //NSEntityDescription.insertNewObject(forEntityName: "FavoriteReview", into: context) as! FavoriteReview
+        review.id_Review = "test about"
+        
+        let video = FavoriteVideo(context: context!)
+        //NSEntityDescription.insertNewObject(forEntityName: "FavoriteVideo", into: context) as! FavoriteVideo
+        video.name  = "video name"
+        
+        movie.addToHasReview(review)
+        review.aboutMovie = movie
+        movie.addToHasVideo(video)
+        video.aboutMovie = movie
+        
+        do{
+            try context?.save()
+        }
+        catch {
+            print("Error")
+        }
+    }
+    
+//    func fetchMoviesFromCore() -> [Movie] {
+//        moviesArray : [Movie]?
+//
+//        return moviesArray
+//    }
     /*
     // MARK: - Navigation
 
@@ -42,13 +89,13 @@ class FavoritesViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 6 //favoriteArray!.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

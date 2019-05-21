@@ -34,6 +34,7 @@
 		CC6C821F2290B4D800D0D04C /* FavoritesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6C821E2290B4D800D0D04C /* FavoritesDelegate.swift */; };
 		CC6C82212290B56F00D0D04C /* FavoritesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6C82202290B56F00D0D04C /* FavoritesProtocol.swift */; };
 		CC6C82232290B58C00D0D04C /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6C82222290B58C00D0D04C /* FavoritesPresenter.swift */; };
+		CC6C82252291F55300D0D04C /* FavoriteCoreDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6C82242291F55300D0D04C /* FavoriteCoreDao.swift */; };
 		CCCA53F2228AFB7700F7ABD1 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F1228AFB7700F7ABD1 /* RecentCollectionViewCell.swift */; };
 		CCCA53F4228B11B900F7ABD1 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F3228B11B900F7ABD1 /* Review.swift */; };
 		CCCA53F6228B11C800F7ABD1 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F5228B11C800F7ABD1 /* Video.swift */; };
@@ -97,6 +98,7 @@
 		CC6C821E2290B4D800D0D04C /* FavoritesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDelegate.swift; sourceTree = "<group>"; };
 		CC6C82202290B56F00D0D04C /* FavoritesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesProtocol.swift; path = MoviesList_Swift/Screens/Favorites/View/FavoritesProtocol.swift; sourceTree = SOURCE_ROOT; };
 		CC6C82222290B58C00D0D04C /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesPresenter.swift; path = MoviesList_Swift/Screens/Favorites/View/FavoritesPresenter.swift; sourceTree = SOURCE_ROOT; };
+		CC6C82242291F55300D0D04C /* FavoriteCoreDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoreDao.swift; sourceTree = "<group>"; };
 		CCCA53F1228AFB7700F7ABD1 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
 		CCCA53F3228B11B900F7ABD1 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Review.swift; path = MoviesList_Swift/Screens/Recent/View/Review.swift; sourceTree = SOURCE_ROOT; };
 		CCCA53F5228B11C800F7ABD1 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Video.swift; path = MoviesList_Swift/Screens/Recent/View/Video.swift; sourceTree = SOURCE_ROOT; };
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				CC03AB9D2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld */,
+				CC6C82242291F55300D0D04C /* FavoriteCoreDao.swift */,
 			);
 			name = DataAccess;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC03AB992289B421005B3E3B /* RecentViewController.swift in Sources */,
+				CC6C82252291F55300D0D04C /* FavoriteCoreDao.swift in Sources */,
 				9C16879F228F10680095281F /* RecentsPresenter.swift in Sources */,
 				CCCA53F4228B11B900F7ABD1 /* Review.swift in Sources */,
 				9C16879D228F10390095281F /* RecentsProtocol.swift in Sources */,
