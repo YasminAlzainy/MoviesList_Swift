@@ -8,7 +8,5 @@
 
 import Foundation
 protocol FavoritesProtocol {
-    
-    func getFavoriteMovies()
     func ShowFavoriteMovies(favoriteMovies : [Movie])
 }

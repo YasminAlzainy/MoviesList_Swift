@@ -9,10 +9,15 @@
 import Foundation
 
 class MoviesDetailsPresenter{
+    var favoritesDao : FavoriteCoreDao?
     
     var recentsPresenter : RecentsPresenter?
     var detailsDelegate : MoviesDetailsProtocol?
     var recentsDelegate : RecentsProtocol?
+    
+    init() {
+        favoritesDao = FavoriteCoreDao(detailsPresenter: self)
+    }
     
 //    init() {
 //        recentsPresenter?.setDelegate(delegate: self as! RecentsProtocol)
@@ -36,6 +41,12 @@ class MoviesDetailsPresenter{
         detailsDelegate?.setMovieDetails(movieObj: movieObj)
     }
     
-     
+    func addToFavoriteMovies(newMovie: Movie){
+        favoritesDao?.addToFavoriteMovies(newMovie: newMovie)
+    }
+    
+    func deleteFromFavoriteMovies(newMovie: Movie){
+        favoritesDao?.deleteFromFavoriteMovies(newMovie: newMovie)
+    }
     
 }

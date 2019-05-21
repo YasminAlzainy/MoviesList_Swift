@@ -10,6 +10,15 @@ import Foundation
 import UIKit
 
 extension MovieDetailsViewController : MoviesDetailsProtocol{
+    func deleteFromFavoriteMovies(newMovie: Movie) {
+        detailsPresenter.deleteFromFavoriteMovies(newMovie: newMovie)
+    }
+    
+    
+    func addToFavoriteMovies(newMovie: Movie) {
+        detailsPresenter.addToFavoriteMovies(newMovie: newMovie)
+    }
+    
     
     func setMovieDetails(movieObj: Movie){
         print("Movie Object can be set into Details VC now")
