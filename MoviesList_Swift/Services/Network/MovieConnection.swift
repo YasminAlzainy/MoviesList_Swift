@@ -21,7 +21,6 @@ private let basePosterPath = "https://image.tmdb.org/t/p/w185"
 class MovieConnection: NSObject {
     
     var recentsPresenter : RecentsPresenter?
-    
     init(presenter: RecentsPresenter){
         self.recentsPresenter = presenter
     }
@@ -65,6 +64,7 @@ class MovieConnection: NSObject {
                     movieObj.poster_path = dict["poster_path"] as? String
                     movieObj.release_date = dict["release_date"] as? String
                     movieObj.vote_average = dict["vote_average"] as? Double
+
                     //print(self.movieObj.id!)
                     
                     movieObjArr.append(movieObj)
