@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -272,18 +271,18 @@
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Jgp-bD-PdB"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="3Rd-1I-69a">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="ranking (2).png" id="at4-q5-q4a">
-                                <connections>
-                                    <action selector="highestRankAction:" destination="bSl-9j-T4Y" id="IRm-vx-VJB"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="top-games-star (3).png" id="4DI-JD-fHj">
-                                <connections>
-                                    <action selector="mostPopularAction:" destination="bSl-9j-T4Y" id="pOz-Gp-3G0"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="zFU-kf-GIe">
+                            <rect key="frame" x="93" y="7.5" width="189" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Most Popular"/>
+                                <segment title="Top Rated"/>
+                            </segments>
+                            <connections>
+                                <action selector="switchBtnAction:" destination="bSl-9j-T4Y" eventType="valueChanged" id="OX4-sX-lfx"/>
+                            </connections>
+                        </segmentedControl>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
@@ -350,10 +349,8 @@
     </scenes>
     <resources>
         <image name="favicon.ico" width="16" height="16"/>
-        <image name="ranking (2).png" width="32" height="32"/>
-        <image name="top-games-star (3).png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bj8-2m-FFZ"/>
+        <segue reference="JTh-dG-c7S"/>
     </inferredMetricsTieBreakers>
 </document>

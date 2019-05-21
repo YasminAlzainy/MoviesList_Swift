@@ -27,8 +27,6 @@ class RecentViewController: UICollectionViewController {
         
         getMoviesList(userChoice: false)
         //self.collectionView?.reloadData()
-        
-        
     }
     
 
@@ -119,17 +117,16 @@ class RecentViewController: UICollectionViewController {
      */
     
     
-    @IBAction func highestRankAction(_ sender: UIBarButtonItem) {
-        getMoviesList(userChoice: true)
-        
+    @IBAction func switchBtnAction(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            getMoviesList(userChoice: false)
+        case 1:
+            getMoviesList(userChoice: true)
+        default:
+            getMoviesList(userChoice: false)
+        }
     }
-    
-    
-    @IBAction func mostPopularAction(_ sender: UIBarButtonItem) {
-        getMoviesList(userChoice: false)
-    }
-    
-    
     
 }
 
