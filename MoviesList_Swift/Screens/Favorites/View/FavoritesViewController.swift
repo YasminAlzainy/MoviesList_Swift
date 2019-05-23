@@ -19,6 +19,7 @@ class FavoritesViewController: UICollectionViewController {
     var appDelegate: AppDelegate?
     var context : NSManagedObjectContext?
 
+    var index = 0
     
     func initPresenter() {
         favoritePresenter = FavoritesPresenter()
@@ -42,8 +43,10 @@ class FavoritesViewController: UICollectionViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        var detailsView = segue.destination as! MovieDetailsViewController
+        detailsView.videosTable = favoriteCollectionArray[index].videosArray!
+        detailsView.reviewsTable = favoriteCollectionArray[index].reviewsArray!
+        detailsView.currentMovie = favoriteCollectionArray[index]
     }
     
 
@@ -63,30 +66,28 @@ class FavoritesViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
 
-        //cell.movieImageView.image = UIImage(named: "movie.jpg")
+        cell.favoriteMovieImageView.image = UIImage(named: "movie.jpg")
         if favoriteCollectionArray[indexPath.row].poster_path == nil{
-            //cell.movieImageView.image = UIImage(named: "movie.jpg")
+            cell.favoriteMovieImageView.image = UIImage(named: "movie.jpg")
         }
         else{
             // Configure the cell
             let posterUrlString : String = basePosterPath +  favoriteCollectionArray[indexPath.row].poster_path!
             print(posterUrlString)
-           // cell.movieImageView.sd_setImage(with: NSURL(string: posterUrlString) as URL?, placeholderImage: UIImage(named:"movie.jpg"))
+            cell.favoriteMovieImageView.sd_setImage(with: NSURL(string: posterUrlString) as URL?, placeholderImage: UIImage(named:"movie.jpg"))
         }
-
-        // Configure the cell
-    
         return cell
     }
 
     // MARK: UICollectionViewDelegate
 
-    /*
+    
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        index = indexPath.row
         return true
     }
-    */
+    
 
     /*
     // Uncomment this method to specify if the specified item should be selected

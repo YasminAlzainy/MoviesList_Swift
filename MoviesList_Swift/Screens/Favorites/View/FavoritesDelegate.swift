@@ -12,15 +12,12 @@ import CoreData
 extension FavoritesViewController : FavoritesProtocol
 {
     func ShowFavoriteMovies(favoriteMovies: [Movie]) {
-        
             print(favoriteMovies.count)
             favoriteCollectionArray = favoriteMovies
             self.collectionView?.reloadData()
-        
     }
     
     func getFavoriteMovies() {
-   
         favoritePresenter!.getFavoriteMovies()
     }
     

@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviesList_Swift/Services/Network/ReviewDao.swift"
-            timestampString = "580337358.509734"
+            timestampString = "580340027.071366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviesList_Swift/Screens/Favorites/View/FavoritesDelegate.swift"
-            timestampString = "580337358.509961"
+            timestampString = "580340027.071647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "ShowFavoriteMovies(favoriteMovies:)"
             landmarkType = "7">
          </BreakpointContent>
