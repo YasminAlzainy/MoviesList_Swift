@@ -35,10 +35,10 @@ class LaunchScreenViewController: UIViewController {
         }, completion: nil)
         
         //Go to home view controller after specfic amount of time
-        let deadlineTime = DispatchTime.now() + .seconds(3)
+        let deadlineTime = DispatchTime.now() + .seconds(5)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             print("test")
-            //self.performSegue(withIdentifier: "FromLaunchToHome", sender: nil)
+            self.performSegue(withIdentifier: "NextVC", sender: nil)
         }
         
     }

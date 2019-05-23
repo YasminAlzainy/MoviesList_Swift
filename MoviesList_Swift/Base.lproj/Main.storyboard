@@ -288,6 +288,7 @@
                                 <segment title="Most Popular"/>
                                 <segment title="Top Rated"/>
                             </segments>
+                            <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="switchBtnAction:" destination="bSl-9j-T4Y" eventType="valueChanged" id="OX4-sX-lfx"/>
                             </connections>
@@ -335,6 +336,7 @@
                     <connections>
                         <outlet property="appIconImage" destination="yA2-gz-bVa" id="442-va-K6S"/>
                         <outlet property="appLabel" destination="JYw-ct-KJA" id="eNP-7x-7x6"/>
+                        <segue destination="dgv-dw-QOO" kind="presentation" identifier="NextVC" id="bxd-u3-Ul7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQs-DF-KhP" userLabel="First Responder" sceneMemberID="firstResponder"/>

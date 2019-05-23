@@ -12,6 +12,11 @@ import Foundation
 extension RecentViewController : RecentsProtocol{
     func showMovies(movieObjectsArray: [Movie]) {
         self.movieObjArr = movieObjectsArray
+        for i in 0..<movieObjArr.count{
+            let idStr = String(movieObjArr[i].id!)
+            getVideosList(movieId: idStr , index: index)
+            getReviewsList(movieId: idStr, index: index)
+        }
         self.collectionView?.reloadData()
     }
     
@@ -35,19 +40,31 @@ extension RecentViewController : RecentsProtocol{
 
     func showVideos(videoObjectsArray: [Video] , index: Int) {
         movieObjArr[index].videosArray = videoObjectsArray
+        RecentViewController.check = RecentViewController.check + 1
+
         sendMovieToDetailsView(movie: movieObjArr[index])
     }
     
     func showReviews(reviewsObjectsArray: [Review] , index: Int) {
         movieObjArr[index].reviewsArray = reviewsObjectsArray
+        RecentViewController.check = RecentViewController.check + 1
         sendMovieToDetailsView(movie: movieObjArr[index])
     }
     
     func sendMovieToDetailsView(movie: Movie){
+        
 //        let video = movieObjArr[index].videosArray![0] as Video
 //        print(video.name)
         // send the movie to details presenter
-        detailsPresenter.sendWholeMovieObjectToDetailsVC(movieObj: movie)
+        //detailsPresenter.sendWholeMovieObjectToDetailsVC(movieObj: movie)
+//        if  (RecentViewController.check == 2)
+//        {
+//            self.collectionView?.reloadData()
+//            print(movieObjArr[0].videosArray![0].name!)
+//            print (movieObjArr[0].reviewsArray![0].author!)
+//        }
+        
+
     }
 
 }
