@@ -35,17 +35,22 @@ extension RecentViewController : RecentsProtocol{
 
     func showVideos(videoObjectsArray: [Video] , index: Int) {
         movieObjArr[index].videosArray = videoObjectsArray
-        sendMovieToDetailsView(movie: movieObjArr[index])
+        detailsVC?.videosTable = videoObjectsArray
+        detailsVC?.readVideosArray()
+        //sendMovieToDetailsView(movie: movieObjArr[index])
     }
     
     func showReviews(reviewsObjectsArray: [Review] , index: Int) {
         movieObjArr[index].reviewsArray = reviewsObjectsArray
-        sendMovieToDetailsView(movie: movieObjArr[index])
+        detailsVC?.reviewsTable = reviewsObjectsArray
+        detailsVC?.readReviewsArray()
+
+        //sendMovieToDetailsView(movie: movieObjArr[index])
     }
     
     func sendMovieToDetailsView(movie: Movie){
-//        let video = movieObjArr[index].videosArray![0] as Video
-//        print(video.name)
+         let video = movieObjArr[index].videosArray![0] as Video
+         print(video.name)
         // send the movie to details presenter
         detailsPresenter.sendWholeMovieObjectToDetailsVC(movieObj: movie)
     }

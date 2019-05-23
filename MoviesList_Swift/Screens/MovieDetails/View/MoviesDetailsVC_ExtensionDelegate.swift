@@ -21,6 +21,8 @@ extension MovieDetailsViewController : MoviesDetailsProtocol{
     
     
     func setMovieDetails(movieObj: Movie){
+         currentMovie = movieObj
+
         print("Movie Object can be set into Details VC now")
         titleLabel.text = movieObj.original_title
         releasedateLabel.text = movieObj.release_date

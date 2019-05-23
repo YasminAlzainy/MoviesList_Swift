@@ -27,6 +27,14 @@ class ReviewsDao {
         return concatedReviewUrl
     }
     
+//    func allReviews(movies: Array<Movie>) {
+//        for i in 0..<movies.count
+//        {
+//            reviewsList(movieId: movies[i].id as! String , Index:i )
+//        }
+//        //callback
+//    }
+    
     func reviewsList(movieId:String , Index: Int) {
         var movieJsonDict : Dictionary<String,Any>?
         Alamofire.request(concatReviewURL(movieId: movieId))
@@ -37,7 +45,7 @@ class ReviewsDao {
                 {
                     movieJsonDict = try JSONSerialization.jsonObject(with: jsonData!, options: .allowFragments) as? Dictionary<String,Any>
                     let reviewResults = movieJsonDict!["results"]! as! Array<Dictionary<String,Any>>
-                    
+                    print(reviewResults)
                     self.parseReviewssJsonArray(reviewJsonDict: reviewResults , index: Index)
                 }
                 catch {print("Error in AF ")}
@@ -58,7 +66,12 @@ class ReviewsDao {
             let review = Review(author: author, content: content, id: id, url: url);
             reviewsArray.append(review)
         }
-        
+        if (reviewsArray.count == 0)
+        {
+            
+            let review = Review(author: "", content: "", id: "", url: "");
+            reviewsArray.append(review)
+        }
         self.sendReviewsListToPresenter(reviewsList: reviewsArray, index: index)
 }
     

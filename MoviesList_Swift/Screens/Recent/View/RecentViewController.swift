@@ -17,6 +17,7 @@ class RecentViewController: UICollectionViewController {
     
     var index : Int = 0
     var movieObjArr : [Movie] = []
+    var detailsVC : MovieDetailsViewController?
 
     var detailsPresenter : MoviesDetailsPresenter = MoviesDetailsPresenter()
     
@@ -40,16 +41,17 @@ class RecentViewController: UICollectionViewController {
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //METHOD HERE
-//        let idStr = String(movieObjArr[index].id!)
-//        getVideosList(movieId: idStr , index: index)
-//        getReviewsList(movieId: idStr, index: index)
+        //METHOD HERE don't delete or comment !
+        let idStr = String(movieObjArr[index].id!)
+        getVideosList(movieId: idStr , index: index)
+        getReviewsList(movieId: idStr, index: index)
         
-        let detailsVC = segue.destination as! MovieDetailsViewController
+        print(movieObjArr[index].id)
+        
+         detailsVC = segue.destination as! MovieDetailsViewController
         //detailsPresenter.detailsDelegate?.setMovieDetails(movieObj: movieObjArr[index]) //try mvp 
         //detailsVC.setMovieDetails(movieObj: movieObjArr[index])
         //detailsPresenter.sendWholeMovieObjectToDetailsVC(movieObj: movieObjArr[index])
-        sendMovieToDetailsView(movie: movieObjArr[index])
 
      }
     

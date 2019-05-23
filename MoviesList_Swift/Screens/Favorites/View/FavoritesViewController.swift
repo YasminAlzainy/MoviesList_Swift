@@ -10,11 +10,12 @@ import UIKit
 import CoreData
 
 private let reuseIdentifier = "FavCell"
+private let basePosterPath = "https://image.tmdb.org/t/p/w185"
 
 class FavoritesViewController: UICollectionViewController {
     
     var favoritePresenter : FavoritesPresenter?
-    var favoriteArray : [NSManagedObject]?
+    var favoriteCollectionArray = Array<Movie>()
     var appDelegate: AppDelegate?
     var context : NSManagedObjectContext?
 
@@ -33,21 +34,10 @@ class FavoritesViewController: UICollectionViewController {
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate!.persistentContainer.viewContext as! NSManagedObjectContext
         
-        //addToFavorite()
         getFavoriteMovies()
-        
-       
-
     }
 
-
     
-//    func fetchMoviesFromCore() -> [Movie] {
-//        moviesArray : [Movie]?
-//
-//        return moviesArray
-//    }
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -55,7 +45,7 @@ class FavoritesViewController: UICollectionViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -67,12 +57,23 @@ class FavoritesViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 6 //favoriteArray!.count
+        return favoriteCollectionArray.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
+
+        //cell.movieImageView.image = UIImage(named: "movie.jpg")
+        if favoriteCollectionArray[indexPath.row].poster_path == nil{
+            //cell.movieImageView.image = UIImage(named: "movie.jpg")
+        }
+        else{
+            // Configure the cell
+            let posterUrlString : String = basePosterPath +  favoriteCollectionArray[indexPath.row].poster_path!
+            print(posterUrlString)
+           // cell.movieImageView.sd_setImage(with: NSURL(string: posterUrlString) as URL?, placeholderImage: UIImage(named:"movie.jpg"))
+        }
+
         // Configure the cell
     
         return cell
