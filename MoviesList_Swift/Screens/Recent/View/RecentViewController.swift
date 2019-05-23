@@ -13,7 +13,7 @@ import SDWebImage
 private let reuseIdentifier = "Cell"
 private let basePosterPath = "https://image.tmdb.org/t/p/w185"
 
-class RecentViewController: UICollectionViewController {
+class RecentViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var index : Int = 0
     var movieObjArr : [Movie] = []
@@ -88,7 +88,6 @@ class RecentViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDelegate
     
-    
      // Uncomment this method to specify if the specified item should be highlighted during tracking
      override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         index = indexPath.row
@@ -117,6 +116,14 @@ class RecentViewController: UICollectionViewController {
      
      }
      */
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = (self.view.frame.size.width - 10 * 2) / 2
+        let height = width * 1.5
+        
+        return CGSize(width: width, height: height)
+    }
     
     
     @IBAction func switchBtnAction(_ sender: UISegmentedControl) {

@@ -14,6 +14,8 @@
 		9C16879D228F10390095281F /* RecentsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16879C228F10390095281F /* RecentsProtocol.swift */; };
 		9C16879F228F10680095281F /* RecentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C16879E228F10680095281F /* RecentsPresenter.swift */; };
 		9C1687A1228F10860095281F /* MovieConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1687A0228F10860095281F /* MovieConnection.swift */; };
+		9C1AC99A2294385600D4AE7D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1AC9992294385600D4AE7D /* LaunchScreenViewController.swift */; };
+		9C1AC99E2294467700D4AE7D /* movie-reel.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1AC99D2294467700D4AE7D /* movie-reel.png */; };
 		9C27748F2291DFE3008A7B1D /* MoviesDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C27748E2291DFE3008A7B1D /* MoviesDetailsPresenter.swift */; };
 		9C2774912291EC1F008A7B1D /* MoviesDetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2774902291EC1F008A7B1D /* MoviesDetailsProtocol.swift */; };
 		9C60AB9B2293692B008D2E04 /* ReviewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60AB9A2293692B008D2E04 /* ReviewsTableViewCell.swift */; };
@@ -75,6 +77,8 @@
 		9C16879C228F10390095281F /* RecentsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentsProtocol.swift; path = MoviesList_Swift/Screens/Recent/View/RecentsProtocol.swift; sourceTree = SOURCE_ROOT; };
 		9C16879E228F10680095281F /* RecentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentsPresenter.swift; path = MoviesList_Swift/Screens/Recent/View/RecentsPresenter.swift; sourceTree = SOURCE_ROOT; };
 		9C1687A0228F10860095281F /* MovieConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieConnection.swift; sourceTree = "<group>"; };
+		9C1AC9992294385600D4AE7D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		9C1AC99D2294467700D4AE7D /* movie-reel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "movie-reel.png"; sourceTree = "<group>"; };
 		9C27748E2291DFE3008A7B1D /* MoviesDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoviesDetailsPresenter.swift; path = MoviesList_Swift/Screens/MovieDetails/View/MoviesDetailsPresenter.swift; sourceTree = SOURCE_ROOT; };
 		9C2774902291EC1F008A7B1D /* MoviesDetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoviesDetailsProtocol.swift; path = MoviesList_Swift/Screens/MovieDetails/View/MoviesDetailsProtocol.swift; sourceTree = SOURCE_ROOT; };
 		9C60AB9A2293692B008D2E04 /* ReviewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTableViewCell.swift; sourceTree = "<group>"; };
@@ -159,10 +163,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9C1AC9982294382B00D4AE7D /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9C1AC9992294385600D4AE7D /* LaunchScreenViewController.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 		9CFC55F42290B1DD00900A2D /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				9CFC55F52290D69400900A2D /* favicon.ico */,
+				9C1AC99D2294467700D4AE7D /* movie-reel.png */,
 				9CFC55F02290B15000900A2D /* ranking (2).png */,
 				9CFC55F12290B15000900A2D /* top-games-star (3).png */,
 				9C1377FB228F25AD00DC6BF0 /* movie.jpg */,
@@ -250,6 +263,7 @@
 		CC03ABA22289B799005B3E3B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9C1AC9982294382B00D4AE7D /* LaunchScreen */,
 				CC03ABA82289B866005B3E3B /* MovieDetails */,
 				CC03ABA72289B859005B3E3B /* Favorites */,
 				CC03ABA62289B846005B3E3B /* Recent */,
@@ -508,6 +522,7 @@
 				9CFC55F32290B15100900A2D /* top-games-star (3).png in Resources */,
 				CC03AB712289A815005B3E3B /* Assets.xcassets in Resources */,
 				CC03AB6F2289A814005B3E3B /* Main.storyboard in Resources */,
+				9C1AC99E2294467700D4AE7D /* movie-reel.png in Resources */,
 				9CFC55F62290D69400900A2D /* favicon.ico in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,6 +644,7 @@
 				CC6C82212290B56F00D0D04C /* FavoritesProtocol.swift in Sources */,
 				CCCA53F2228AFB7700F7ABD1 /* RecentCollectionViewCell.swift in Sources */,
 				CC6C82232290B58C00D0D04C /* FavoritesPresenter.swift in Sources */,
+				9C1AC99A2294385600D4AE7D /* LaunchScreenViewController.swift in Sources */,
 				9C27748F2291DFE3008A7B1D /* MoviesDetailsPresenter.swift in Sources */,
 				9C60AB9D2293693A008D2E04 /* TrailersTableViewCell.swift in Sources */,
 				CC03ABA12289B58F005B3E3B /* FavoritesViewController.swift in Sources */,
