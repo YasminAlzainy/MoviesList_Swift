@@ -25,6 +25,9 @@ class Movie: NSObject {
         self.vote_average = vote_average
         self.release_date = release_date
         self.id = id
+        
+        videosArray = Array<Video>()
+        reviewsArray = Array<Review>()
     }
     
 }

@@ -13,25 +13,15 @@ extension FavoritesViewController : FavoritesProtocol
 {
     func ShowFavoriteMovies(favoriteMovies: [Movie]) {
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteMovie")
-        do{
-            try context!.save()
-            
-            let newMovieList = try context!.fetch(fetchRequest) as! [NSManagedObject];
-            let arr = newMovieList ;
-            print(newMovieList.count)
-        }
-        catch{}
+            print(favoriteMovies.count)
+            favoriteCollectionArray = favoriteMovies
+            self.collectionView?.reloadData()
+        
     }
     
     func getFavoriteMovies() {
    
         favoritePresenter!.getFavoriteMovies()
     }
-    
-    func showFaoriteMovies() {
-        
-    }
-    
     
 }

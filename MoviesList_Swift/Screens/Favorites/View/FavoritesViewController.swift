@@ -10,11 +10,12 @@ import UIKit
 import CoreData
 
 private let reuseIdentifier = "FavCell"
+private let basePosterPath = "https://image.tmdb.org/t/p/w185"
 
 class FavoritesViewController: UICollectionViewController {
     
     var favoritePresenter : FavoritesPresenter?
-    var favoriteArray : [NSManagedObject]?
+    var favoriteCollectionArray = Array<Movie>()
     var appDelegate: AppDelegate?
     var context : NSManagedObjectContext?
 
@@ -34,48 +35,9 @@ class FavoritesViewController: UICollectionViewController {
         context = appDelegate!.persistentContainer.viewContext as! NSManagedObjectContext
         
         getFavoriteMovies()
-        
-       
-
     }
 
-    func addToFavorite(){
-        let movie = FavoriteMovie(context: context!)
-        //NSEntityDescription.insertNewObject(forEntityName: "FavoriteMovie", into: context) as! FavoriteMovie
-        movie.id_movie = 299534
-        movie.original_title = "Avengers: Endgame"
-        movie.poster_path = "/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-        movie.overview = "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store."
-        movie.vote_average = 8.5
-        movie.release_date = "release_date"
-        
-        let review = FavoriteReview(context: context!)
-        //NSEntityDescription.insertNewObject(forEntityName: "FavoriteReview", into: context) as! FavoriteReview
-        review.id_Review = "test about"
-        
-        let video = FavoriteVideo(context: context!)
-        //NSEntityDescription.insertNewObject(forEntityName: "FavoriteVideo", into: context) as! FavoriteVideo
-        video.name  = "video name"
-        
-        movie.addToHasReview(review)
-        review.aboutMovie = movie
-        movie.addToHasVideo(video)
-        video.aboutMovie = movie
-        
-        do{
-            try context?.save()
-        }
-        catch {
-            print("Error")
-        }
-    }
     
-//    func fetchMoviesFromCore() -> [Movie] {
-//        moviesArray : [Movie]?
-//
-//        return moviesArray
-//    }
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -83,7 +45,7 @@ class FavoritesViewController: UICollectionViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -95,12 +57,23 @@ class FavoritesViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 6 //favoriteArray!.count
+        return favoriteCollectionArray.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesCollectionViewCell
+
+        //cell.movieImageView.image = UIImage(named: "movie.jpg")
+        if favoriteCollectionArray[indexPath.row].poster_path == nil{
+            //cell.movieImageView.image = UIImage(named: "movie.jpg")
+        }
+        else{
+            // Configure the cell
+            let posterUrlString : String = basePosterPath +  favoriteCollectionArray[indexPath.row].poster_path!
+            print(posterUrlString)
+           // cell.movieImageView.sd_setImage(with: NSURL(string: posterUrlString) as URL?, placeholderImage: UIImage(named:"movie.jpg"))
+        }
+
         // Configure the cell
     
         return cell

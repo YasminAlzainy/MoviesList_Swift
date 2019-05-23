@@ -18,6 +18,7 @@ class RecentViewController: UICollectionViewController, UICollectionViewDelegate
     static var check = 0
     var index : Int = 0
     var movieObjArr : [Movie] = []
+    var detailsVC : MovieDetailsViewController?
 
     var detailsPresenter : MoviesDetailsPresenter = MoviesDetailsPresenter()
     
@@ -52,6 +53,14 @@ class RecentViewController: UICollectionViewController, UICollectionViewDelegate
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailsVC = segue.destination as! MovieDetailsViewController
         detailsVC.setMovieDetails(movieObj: movieObjArr[index])
+
+        //METHOD HERE don't delete or comment !
+        let idStr = String(movieObjArr[index].id!)
+        getVideosList(movieId: idStr , index: index)
+        getReviewsList(movieId: idStr, index: index)
+        
+        print(movieObjArr[index].id!)
+
 
      }
     

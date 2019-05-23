@@ -20,6 +20,14 @@ class VideoDao {
         self.recentsPresenter = presenter
     }
 
+    func allViedeos(movies: Array<Movie>) {
+        for i in 0..<movies.count
+        {
+            videosList(movieId: movies[i].id as! String , index:i )
+        }
+        //recentsPresenter.
+    }
+    
     func concatVedioURL(movieId:String) -> String {
         let concatedVedioUrl = singleMovieUrl + movieId + videosUrl + apiKey
         return concatedVedioUrl
@@ -58,6 +66,11 @@ class VideoDao {
             let type =  videoJson["type"] as! String
         
             let vedio = Video.init(id: id , iso_639_1:iso_639_1 , iso_3166_1:iso_3166_1 , key: key , name:name, site: site , size: size , type: type)
+            videosArray.append(vedio)
+        }
+        if (videosArray.count == 0)
+        {
+            let vedio = Video.init(id: "d" , iso_639_1:"" , iso_3166_1:"" , key: "" , name:"", site: "" , size: 0 , type: "")
             videosArray.append(vedio)
         }
         self.sendVedioListToPresenter(vedioArray: videosArray, index: index)

@@ -46,6 +46,7 @@
 		CCCA53F4228B11B900F7ABD1 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F3228B11B900F7ABD1 /* Review.swift */; };
 		CCCA53F6228B11C800F7ABD1 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F5228B11C800F7ABD1 /* Video.swift */; };
 		CCCA53F8228B160E00F7ABD1 /* ReviewDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA53F7228B160E00F7ABD1 /* ReviewDao.swift */; };
+		CCED1987229680A400981F84 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCED1986229680A400981F84 /* FavoritesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		CCCA53F3228B11B900F7ABD1 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Review.swift; path = MoviesList_Swift/Screens/Recent/View/Review.swift; sourceTree = SOURCE_ROOT; };
 		CCCA53F5228B11C800F7ABD1 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Video.swift; path = MoviesList_Swift/Screens/Recent/View/Video.swift; sourceTree = SOURCE_ROOT; };
 		CCCA53F7228B160E00F7ABD1 /* ReviewDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewDao.swift; path = MoviesList_Swift/Services/Network/ReviewDao.swift; sourceTree = SOURCE_ROOT; };
+		CCED1986229680A400981F84 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +361,7 @@
 			children = (
 				CC03ABA02289B58F005B3E3B /* FavoritesViewController.swift */,
 				CC6C821E2290B4D800D0D04C /* FavoritesDelegate.swift */,
+				CCED1986229680A400981F84 /* FavoritesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				9C16879D228F10390095281F /* RecentsProtocol.swift in Sources */,
 				CC6C821D228F572600D0D04C /* VedioDao.swift in Sources */,
 				9CD2CEBB2291AD3C00F3E948 /* MoviesDetailsVC_ExtensionDelegate.swift in Sources */,
+				CCED1987229680A400981F84 /* FavoritesCollectionViewCell.swift in Sources */,
 				CCCA53F6228B11C800F7ABD1 /* Video.swift in Sources */,
 				CC03AB9F2289B53D005B3E3B /* MoviesCoreData.xcdatamodeld in Sources */,
 				BABDCFEF228AC2A40002724E /* Movie.swift in Sources */,

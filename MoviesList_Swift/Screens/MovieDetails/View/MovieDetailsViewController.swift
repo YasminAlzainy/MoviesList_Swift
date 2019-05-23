@@ -13,6 +13,10 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
     var detailsPresenter : MoviesDetailsPresenter = MoviesDetailsPresenter()
     var myMovieObject : Movie?
     
+    var currentMovie : Movie?
+    var reviewsTable = Array<Review>()
+    var videosTable = Array<Video>()
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var voteAvgLabel: UILabel!
     @IBOutlet weak var releasedateLabel: UILabel!
@@ -28,6 +32,17 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
         self.reviewsTableView.delegate = self
         self.reviewsTableView.dataSource = self
         self.detailsPresenter.setDelegate(delegate: self)
+        print()
+        
+    }
+    
+    func readVideosArray()  {
+        print(videosTable[0].name)
+        
+    }
+    
+    func readReviewsArray() {
+        print(reviewsTable[0].content)
     }
     
     
@@ -65,6 +80,10 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
     
     
     @IBAction func markAsFavAction(_ sender: UIButton) {
+        
+        addToFavoriteMovies(newMovie: currentMovie!)
+        //or
+        //deleteFromFavoriteMovies(newMovie: newMovie)
     }
     
     
