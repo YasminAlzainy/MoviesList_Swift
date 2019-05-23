@@ -11,6 +11,8 @@ import UIKit
 class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var detailsPresenter : MoviesDetailsPresenter = MoviesDetailsPresenter()
+    var myMovieObject : Movie?
+    
     var currentMovie : Movie?
     var reviewsTable = Array<Review>()
     var videosTable = Array<Video>()

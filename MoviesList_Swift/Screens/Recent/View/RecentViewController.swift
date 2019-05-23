@@ -15,6 +15,7 @@ private let basePosterPath = "https://image.tmdb.org/t/p/w185"
 
 class RecentViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    static var check = 0
     var index : Int = 0
     var movieObjArr : [Movie] = []
     var detailsVC : MovieDetailsViewController?
@@ -28,12 +29,21 @@ class RecentViewController: UICollectionViewController, UICollectionViewDelegate
         
         getMoviesList(userChoice: false)
         //self.collectionView?.reloadData()
+        
+//        for i in 0..<movieObjArr.count{
+//            let idStr = String(movieObjArr[i].id!)
+//            getVideosList(movieId: idStr , index: index)
+//            getReviewsList(movieId: idStr, index: index)
+//        }
     }
     
 
     
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView?.reloadData()
+        //METHOD HERE
+       
+    
     }
     
 
@@ -41,17 +51,16 @@ class RecentViewController: UICollectionViewController, UICollectionViewDelegate
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailsVC = segue.destination as! MovieDetailsViewController
+        detailsVC.setMovieDetails(movieObj: movieObjArr[index])
+
         //METHOD HERE don't delete or comment !
         let idStr = String(movieObjArr[index].id!)
         getVideosList(movieId: idStr , index: index)
         getReviewsList(movieId: idStr, index: index)
         
-        print(movieObjArr[index].id)
-        
-         detailsVC = segue.destination as! MovieDetailsViewController
-        //detailsPresenter.detailsDelegate?.setMovieDetails(movieObj: movieObjArr[index]) //try mvp 
-        //detailsVC.setMovieDetails(movieObj: movieObjArr[index])
-        //detailsPresenter.sendWholeMovieObjectToDetailsVC(movieObj: movieObjArr[index])
+        print(movieObjArr[index].id!)
+
 
      }
     

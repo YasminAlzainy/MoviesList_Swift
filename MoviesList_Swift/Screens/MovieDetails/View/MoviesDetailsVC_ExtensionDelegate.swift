@@ -24,17 +24,17 @@ extension MovieDetailsViewController : MoviesDetailsProtocol{
          currentMovie = movieObj
 
         print("Movie Object can be set into Details VC now")
-        titleLabel.text = movieObj.original_title
-        releasedateLabel.text = movieObj.release_date
-        voteAvgLabel.text = String(format:"%.1f", movieObj.vote_average!)
+//        titleLabel.text = movieObj.original_title
+//        releasedateLabel.text = movieObj.release_date
+//        voteAvgLabel.text = String(format:"%.1f", movieObj.vote_average!)
         
         //image
         //videos
         //trailers
         
-        //print(movieObj.original_title!)
+        print(movieObj.original_title!)
         //print(movieObj.reviewsArray!)
-        //print(movieObj.videosArray!)
+        print(movieObj.videosArray!)
         
     }
 }
