@@ -123,7 +123,7 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableView {
         case trailersTableView:
-            openYoutube(url: videosTable[indexPath.row].id!)
+            openYoutube(url: videosTable[indexPath.row].key!)
         default:
             print("")
         }
