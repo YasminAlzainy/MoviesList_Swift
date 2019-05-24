@@ -46,7 +46,7 @@ class FavoriteCoreDao {
         for fetchedMovie in fetchedMovies {
             
             let movieObj : Movie = Movie(original_title: "", poster_path: "", overview: "", vote_average: 0.0, release_date: "", id: 0)
-            movieObj.id = fetchedMovie.id_movie as! Int
+            movieObj.id = fetchedMovie.id_movie as? Double
             movieObj.original_title = fetchedMovie.original_title
             movieObj.overview = fetchedMovie.overview
             movieObj.poster_path = fetchedMovie.poster_path
@@ -91,7 +91,7 @@ class FavoriteCoreDao {
         
         let movie = FavoriteMovie(context: context)
         //NSEntityDescription.insertNewObject(forEntityName: "FavoriteMovie", into: context) as! FavoriteMovie
-        movie.id_movie = newMovie.id as! NSDecimalNumber
+        movie.id_movie = Double(newMovie.id  as! NSDecimalNumber)
         movie.original_title = newMovie.original_title
         movie.poster_path = newMovie.poster_path
         movie.overview = newMovie.overview

@@ -58,7 +58,7 @@ class MovieConnection: NSObject {
                 //fill a movie object with data from dict inside the json array
                 for dict in resultsArr!{
                     let movieObj : Movie = Movie(original_title: "", poster_path: "", overview: "", vote_average: 0.0, release_date: "", id: 0)
-                    movieObj.id = dict["id"] as? Int
+                    movieObj.id = dict["id"] as? Double
                     movieObj.original_title = dict["original_title"] as? String
                     movieObj.overview = dict["overview"] as? String
                     movieObj.poster_path = dict["poster_path"] as? String

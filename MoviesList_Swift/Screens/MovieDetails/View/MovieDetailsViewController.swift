@@ -105,6 +105,7 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
     @IBAction func markAsFavAction(_ sender: UIButton) {
         
         addToFavoriteMovies(newMovie: currentMovie!)
+        
         //or
         //deleteFromFavoriteMovies(newMovie: newMovie)
     }
