@@ -112,10 +112,7 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
         return cell
  
     }
-    
-    
-    
-    
+
     
         //addToFavoriteMovies(newMovie: currentMovie!)
     
