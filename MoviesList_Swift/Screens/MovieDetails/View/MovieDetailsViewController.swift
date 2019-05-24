@@ -18,11 +18,13 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
     var myVideosTableView : UITableView?
     static var reviewsCount = 0
     static var videosCount = 0
+    private let basePosterPath = "https://image.tmdb.org/t/p/w185"
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var voteAvgLabel: UILabel!
     @IBOutlet weak var releasedateLabel: UILabel!
     @IBOutlet weak var overviewTextView: UITextView!
+    @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var trailersTableView: UITableView!
     @IBOutlet weak var reviewsTableView: UITableView!
     
@@ -37,9 +39,20 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
         
         //Setting Movie Object into Labels and TextViews
         titleLabel.text = currentMovie?.original_title
-        voteAvgLabel.text = String(format:"%.f", ((currentMovie?.vote_average)!/10))
+        voteAvgLabel.text = String(format:"%.f", ((currentMovie?.vote_average)!))
         releasedateLabel.text = currentMovie?.release_date
         overviewTextView.text = currentMovie?.overview
+        if currentMovie?.poster_path == nil{
+            print("Poster is nil")
+            movieImageView.image = UIImage(named: "movie.jpg")
+        }
+        else{
+            print("Poster is NOT nil")
+            
+            let posterUrlString : String = basePosterPath+currentMovie!.poster_path!
+            print(posterUrlString)
+            movieImageView.sd_setImage(with: NSURL(string: posterUrlString) as URL?, placeholderImage: UIImage(named:"movie.jpg"))
+        }
         
     }
     
@@ -94,22 +107,25 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
 
         
         default: break
-            
-            }
+        }
         
         return cell
  
     }
+
+
     
-    
-    @IBAction func markAsFavAction(_ sender: UIButton) {
-        
+    @IBAction func addToFavorites(_ sender: UIButton) {
         addToFavoriteMovies(newMovie: currentMovie!)
-        
-        //or
-        //deleteFromFavoriteMovies(newMovie: currentMovie!)
+
     }
     
-
+    
+    @IBAction func removeFromFav(_ sender: UIButton) {
+        deleteFromFavoriteMovies(newMovie: currentMovie!)
+    }
+    
+    
 }
+
 
