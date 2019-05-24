@@ -25,6 +25,10 @@ class FavoritesViewController: UICollectionViewController {
         favoritePresenter = FavoritesPresenter()
         favoritePresenter?.setDelegate(favoritesProtocol: self as FavoritesProtocol)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        getFavoriteMovies()
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +37,6 @@ class FavoritesViewController: UICollectionViewController {
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate!.persistentContainer.viewContext as! NSManagedObjectContext
         
-        getFavoriteMovies()
     }
 
     

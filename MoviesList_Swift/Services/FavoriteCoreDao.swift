@@ -91,7 +91,7 @@ class FavoriteCoreDao {
         
         let movie = FavoriteMovie(context: context)
         //NSEntityDescription.insertNewObject(forEntityName: "FavoriteMovie", into: context) as! FavoriteMovie
-        movie.id_movie = Double(newMovie.id  as! NSDecimalNumber)
+        movie.id_movie = newMovie.id!
         movie.original_title = newMovie.original_title
         movie.poster_path = newMovie.poster_path
         movie.overview = newMovie.overview
@@ -122,7 +122,7 @@ class FavoriteCoreDao {
             video.iso_639_1 = newVideo.iso_639_1
             video.key = newVideo.key
             video.site = newVideo.site
-            video.size = newVideo.size as! NSDecimalNumber
+         //   video.size = newVideo.size as! NSDecimalNumber
             
             movie.addToHasVideo(video)
             video.aboutMovie = movie
@@ -141,7 +141,7 @@ class FavoriteCoreDao {
         let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteMovie")
-        let myPredicate = NSPredicate(format: "id_movie == %@", newMovie.id!)
+        let myPredicate = NSPredicate(format: "id_movie==\( newMovie.id!)")
         fetchRequest.predicate = myPredicate
         
         do{
