@@ -74,7 +74,7 @@ class FavoriteCoreDao {
                 video.key = fetchedVideo.key
                 video.name = fetchedVideo.name
                 video.site = fetchedVideo.site
-                video.size = Int(fetchedVideo.size)
+                video.size = Int(fetchedVideo.size!)
                 
                 movieObj.videosArray?.append(video)
             }
@@ -91,7 +91,7 @@ class FavoriteCoreDao {
         
         let movie = FavoriteMovie(context: context)
         //NSEntityDescription.insertNewObject(forEntityName: "FavoriteMovie", into: context) as! FavoriteMovie
-        movie.id_movie = Int64(newMovie.id as! NSDecimalNumber)
+        movie.id_movie = newMovie.id as! NSDecimalNumber
         movie.original_title = newMovie.original_title
         movie.poster_path = newMovie.poster_path
         movie.overview = newMovie.overview
@@ -122,7 +122,7 @@ class FavoriteCoreDao {
             video.iso_639_1 = newVideo.iso_639_1
             video.key = newVideo.key
             video.site = newVideo.site
-            video.size = Int64(truncating: newVideo.size as! NSDecimalNumber)
+            video.size = newVideo.size as! NSDecimalNumber
             
             movie.addToHasVideo(video)
             video.aboutMovie = movie
