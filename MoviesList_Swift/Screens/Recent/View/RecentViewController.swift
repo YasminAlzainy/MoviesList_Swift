@@ -30,11 +30,6 @@ class RecentViewController: UICollectionViewController, UICollectionViewDelegate
         getMoviesList(userChoice: false)
         //self.collectionView?.reloadData()
         
-//        for i in 0..<movieObjArr.count{
-//            let idStr = String(movieObjArr[i].id!)
-//            getVideosList(movieId: idStr , index: index)
-//            getReviewsList(movieId: idStr, index: index)
-//        }
     }
     
 
@@ -42,7 +37,6 @@ class RecentViewController: UICollectionViewController, UICollectionViewDelegate
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView?.reloadData()
         //METHOD HERE
-       
     
     }
     
@@ -51,8 +45,8 @@ class RecentViewController: UICollectionViewController, UICollectionViewDelegate
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailsVC = segue.destination as! MovieDetailsViewController
-        detailsVC.setMovieDetails(movieObj: movieObjArr[index])
+        detailsVC = segue.destination as? MovieDetailsViewController
+        detailsVC?.setMovieDetails(movieObj: movieObjArr[index])
 
         //METHOD HERE don't delete or comment !
         let idStr = String(movieObjArr[index].id!)

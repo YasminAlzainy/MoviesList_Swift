@@ -21,19 +21,10 @@ extension MovieDetailsViewController : MoviesDetailsProtocol{
     
     
     func setMovieDetails(movieObj: Movie){
-         currentMovie = movieObj
-
+        currentMovie = movieObj
         print("Movie Object can be set into Details VC now")
-//        titleLabel.text = movieObj.original_title
-//        releasedateLabel.text = movieObj.release_date
-//        voteAvgLabel.text = String(format:"%.1f", movieObj.vote_average!)
-        
-        //image
-        //videos
-        //trailers
-        
         print(movieObj.original_title!)
-        //print(movieObj.reviewsArray!)
+        print(movieObj.reviewsArray!)
         print(movieObj.videosArray!)
         
     }

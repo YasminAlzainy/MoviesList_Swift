@@ -51,30 +51,17 @@ extension RecentViewController : RecentsProtocol{
     func showReviews(reviewsObjectsArray: [Review] , index: Int) {
         movieObjArr[index].reviewsArray = reviewsObjectsArray
         RecentViewController.check = RecentViewController.check + 1
+        detailsVC?.reviewsTable = reviewsObjectsArray
+        detailsVC?.readReviewsArray()
         sendMovieToDetailsView(movie: movieObjArr[index])
     }
     
     func sendMovieToDetailsView(movie: Movie){
-        
-//        let video = movieObjArr[index].videosArray![0] as Video
-//        print(video.name)
-        //detailsVC?.reviewsTable = reviewsObjectsArray
         detailsVC?.readReviewsArray()
 
-        //sendMovieToDetailsView(movie: movieObjArr[index])
     }
     
-//    func sendMovieToDetailsView(movie: Movie){
-//         let video = movieObjArr[index].videosArray![0] as Video
-//         print(video.name)
-//        // send the movie to details presenter
-//        //detailsPresenter.sendWholeMovieObjectToDetailsVC(movieObj: movie)
-////        if  (RecentViewController.check == 2)
-////        {
-////            self.collectionView?.reloadData()
-////            print(movieObjArr[0].videosArray![0].name!)
-////            print (movieObjArr[0].reviewsArray![0].author!)
-////        }
+
     
 
     
