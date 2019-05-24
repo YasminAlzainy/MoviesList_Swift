@@ -22,7 +22,7 @@ class ReviewsDao {
     }
     
     func concatReviewURL(movieId:String) -> String {
-        var concatedReviewUrl = singleMovieUrl + movieId + reviewsUrl + apiKey
+        let concatedReviewUrl = singleMovieUrl + movieId + reviewsUrl + apiKey
         print(concatedReviewUrl)
         return concatedReviewUrl
     }

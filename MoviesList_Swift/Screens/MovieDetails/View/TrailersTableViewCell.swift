@@ -10,6 +10,11 @@ import UIKit
 
 class TrailersTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var trailerTitle: UILabel!
+    
+    @IBOutlet weak var trailerThumbnail: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
