@@ -110,9 +110,10 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
              let cell:TrailersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TrailersTableViewCell
         
             cell.trailerTitle.text = videosTable[indexPath.row].name
-           print(videosTable[indexPath.row].name)
+            print(videosTable[indexPath.row].name)
             
             //cell.trailerThumbnailsd.
+            return cell
         default: break
         }
         
