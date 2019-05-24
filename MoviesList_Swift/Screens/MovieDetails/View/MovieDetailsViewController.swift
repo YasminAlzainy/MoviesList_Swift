@@ -98,14 +98,21 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
                 cell.contentTextView.text = reviewsTable[indexPath.row].content
                 print(reviewsTable[indexPath.row].content!)
                 
+                //                cell.contentLabel.text = reviewsTable[MovieDetailsViewController.reviewsCount].content
+                //            MovieDetailsViewController.reviewsCount = MovieDetailsViewController.reviewsCount + 1
+                //        case trailersTableView:
+                //            let cell:TrailersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+                //                cell.authorLabel.text = reviewsTable[MovieDetailsViewController.reviewsCount].author
             return cell
-//                cell.authorLabel.text = reviewsTable[MovieDetailsViewController.reviewsCount].author
-//                cell.contentLabel.text = reviewsTable[MovieDetailsViewController.reviewsCount].content
-//            MovieDetailsViewController.reviewsCount = MovieDetailsViewController.reviewsCount + 1
-//        case trailersTableView:
-//            let cell:TrailersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+            break
+            
+        case myVideosTableView:
+             let cell:TrailersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TrailersTableViewCell
         
+            cell.trailerTitle.text = videosTable[indexPath.row].name
+           print(videosTable[indexPath.row].name)
+            
+            //cell.trailerThumbnailsd.
         default: break
         }
         
@@ -113,7 +120,14 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
  
     }
 
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch tableView {
+        case trailersTableView:
+            openYoutube(url: videosTable[indexPath.row].id!)
+        default:
+            print("")
+        }
+    }
     
     @IBAction func addToFavorites(_ sender: UIButton) {
         addToFavoriteMovies(newMovie: currentMovie!)
@@ -125,6 +139,20 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
         deleteFromFavoriteMovies(newMovie: currentMovie!)
     }
     
+    func openYoutube(url : String) {
+        let webUrl = NSURL(string: "https://www.youtube.com/watch?v=\(url)")
+        let appUrl = NSURL(string: "youtube://www.youtube.com/watch?v=\(url)")
+        let application = UIApplication.shared
+        if(application.canOpenURL(appUrl as! URL))
+        {
+            application.open(appUrl as! URL, options: [:], completionHandler: nil)
+        }
+        else
+        {
+        application.open(webUrl as! URL, options: [:], completionHandler: nil)
+        }
+
+    }
     
 }
 
