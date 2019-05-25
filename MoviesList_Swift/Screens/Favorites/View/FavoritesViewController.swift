@@ -12,7 +12,7 @@ import CoreData
 private let reuseIdentifier = "FavCell"
 private let basePosterPath = "https://image.tmdb.org/t/p/w185"
 
-class FavoritesViewController: UICollectionViewController {
+class FavoritesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout  {
     
     var favoritePresenter : FavoritesPresenter?
     var favoriteCollectionArray = Array<Movie>()
@@ -111,5 +111,13 @@ class FavoritesViewController: UICollectionViewController {
     
     }
     */
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = (self.view.frame.size.width - 10 * 2) / 2
+        let height = width * 1.5
+        
+        return CGSize(width: width, height: height)
+    }
 
 }

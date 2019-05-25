@@ -97,22 +97,18 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
             
                 cell.contentTextView.text = reviewsTable[indexPath.row].content
                 print(reviewsTable[indexPath.row].content!)
-                
-                //                cell.contentLabel.text = reviewsTable[MovieDetailsViewController.reviewsCount].content
-                //            MovieDetailsViewController.reviewsCount = MovieDetailsViewController.reviewsCount + 1
-                //        case trailersTableView:
-                //            let cell:TrailersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-                //                cell.authorLabel.text = reviewsTable[MovieDetailsViewController.reviewsCount].author
             return cell
-            break
             
         case myVideosTableView:
              let cell:TrailersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TrailersTableViewCell
         
             cell.trailerTitle.text = videosTable[indexPath.row].name
-            print(videosTable[indexPath.row].name)
-            
-            //cell.trailerThumbnailsd.
+             print(videosTable[indexPath.row].name!)
+             
+            var thumbImage = getTrailerThumbnail(id: videosTable[indexPath.row].key!)
+            cell.trailerThumbnail.sd_setImage(with: NSURL(string: thumbImage) as URL?, placeholderImage: UIImage(named:"youtube-play.png"))
+             print(thumbImage+"************") //test
+             
             return cell
         default: break
         }
@@ -135,24 +131,28 @@ class MovieDetailsViewController : UIViewController, UITableViewDelegate, UITabl
 
     }
     
-    
     @IBAction func removeFromFav(_ sender: UIButton) {
         deleteFromFavoriteMovies(newMovie: currentMovie!)
     }
+    
+    
     
     func openYoutube(url : String) {
         let webUrl = NSURL(string: "https://www.youtube.com/watch?v=\(url)")
         let appUrl = NSURL(string: "youtube://www.youtube.com/watch?v=\(url)")
         let application = UIApplication.shared
-        if(application.canOpenURL(appUrl as! URL))
-        {
-            application.open(appUrl as! URL, options: [:], completionHandler: nil)
+        if(application.canOpenURL(appUrl! as URL)){
+            application.open(appUrl! as URL, options: [:], completionHandler: nil)
         }
-        else
-        {
-        application.open(webUrl as! URL, options: [:], completionHandler: nil)
+        else{
+            application.open(webUrl! as URL, options: [:], completionHandler: nil)
         }
 
+    }
+    
+    func getTrailerThumbnail(id: String) -> String{
+        let thumbnailURL = "https://img.youtube.com/vi/" + id + "/1.jpg"
+        return thumbnailURL
     }
     
 }
